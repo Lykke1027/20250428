@@ -49,11 +49,14 @@ function drawOverlayGraphics() {
   overlayGraphics.background(0); // 設定背景為黑色
   overlayGraphics.noStroke();
 
+  // 將攝影機影像繪製到 overlayGraphics
+  overlayGraphics.image(capture, 0, 0, overlayGraphics.width, overlayGraphics.height);
+
   // 每隔 20 繪製一個圓
   for (let y = 0; y < overlayGraphics.height; y += 20) {
     for (let x = 0; x < overlayGraphics.width; x += 20) {
-      // 從 capture 中取顏色
-      let col = capture.get(x, y);
+      // 從 overlayGraphics 中取顏色
+      let col = overlayGraphics.get(x, y);
       overlayGraphics.fill(col); // 設定圓的顏色
       overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓，中心點偏移 10
     }
