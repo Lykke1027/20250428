@@ -10,10 +10,12 @@ function setup() {
 
 function draw() {
   background(245, 245, 220); // 確保背景為米色
+  translate(width, 0); // 將畫布的原點移到右上角
+  scale(-1, 1); // 水平翻轉畫布
   image(
     capture,
-    (windowWidth - capture.width) / 2, // 計算影像水平置中位置
-    (windowHeight - capture.height) / 2 // 計算影像垂直置中位置
+    (width - capture.width) / 2, // 計算影像水平置中位置
+    (height - capture.height) / 2 // 計算影像垂直置中位置
   );
 }
 
