@@ -55,9 +55,10 @@ function drawOverlayGraphics() {
   // 每隔 20 繪製一個圓
   for (let y = 0; y < overlayGraphics.height; y += 20) {
     for (let x = 0; x < overlayGraphics.width; x += 20) {
-      // 從 overlayGraphics 中取顏色
-      let col = overlayGraphics.get(x, y);
-      overlayGraphics.fill(col); // 設定圓的顏色
+      // 從 capture 中取顏色
+      let col = capture.get(x, y);
+      let gray = (col[0] + col[1] + col[2]) / 3; // 計算灰階值
+      overlayGraphics.fill(gray); // 設定圓的顏色為灰階
       overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓，中心點偏移 10
     }
   }
